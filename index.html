@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanType - Modern Text Editor</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="CleanType - Modern writing, minimalist thinking">
+    <meta property="og:description" content="A modern, distraction-free text editor for focused writing. Clean interface, fast performance, and beautiful design.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/StarKnightt/cleantype/main/public/og-image.png">
+    <meta property="og:url" content="https://github.com/StarKnightt/cleantype">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CleanType - Modern writing, minimalist thinking">
+    <meta name="twitter:description" content="A modern, distraction-free text editor for focused writing. Clean interface, fast performance, and beautiful design.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/StarKnightt/cleantype/main/public/og-image.png">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- External JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+    <div class="cursor-fx cursor-main"></div>
+    <div class="cursor-fx cursor-trail"></div>
+
+    <div class="svg-container">
+        <svg class="hero-svg" viewBox="0 0 100 100">
+            <path class="morph-path" d="M10,50 Q50,10 90,50 T90,50" />
+            <path class="morph-path" d="M10,50 Q50,90 90,50 T90,50" />
+        </svg>
+        <svg class="hero-svg" viewBox="0 0 100 100" style="transform: rotate(60deg)">
+            <path class="morph-path" d="M10,50 Q50,10 90,50 T90,50" />
+            <path class="morph-path" d="M10,50 Q50,90 90,50 T90,50" />
+        </svg>
+        <svg class="hero-svg" viewBox="0 0 100 100" style="transform: rotate(-60deg)">
+            <path class="morph-path" d="M10,50 Q50,10 90,50 T90,50" />
+            <path class="morph-path" d="M10,50 Q50,90 90,50 T90,50" />
+        </svg>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <h1>CleanType</h1>
+            <p class="subtitle">A modern, distraction-free text editor for focused writing</p>
+            <div class="download-section">
+                <a href="https://github.com/StarKnightt/CleanType/releases/download/v0.2.0/CleanType_0.2.0_x64-setup.exe" 
+                   class="download-button">
+                    <span class="recommended-tag">Recommended</span>
+                    Download CleanType
+                    <span class="button-note">Windows Installer (.exe)</span>
+                </a>
+                <a href="https://github.com/StarKnightt/CleanType/releases/download/v0.2.0/CleanType_0.2.0_x64_en-US.msi" 
+                   class="download-button">
+                    Download CleanType
+                    <span class="button-note">Windows Installer (.msi)</span>
+                </a>
+            </div>
+            <div class="security-notice">
+                <strong>⚠️ Windows SmartScreen Notice:</strong> Since this is a new application pending certification, 
+                Windows SmartScreen might show a warning. This is normal for new software. To proceed:
+                <br>1. Click "More info"
+                <br>2. Select "Run anyway"
+                <br>We're working on obtaining a code signing certificate to remove this warning.
+            </div>
+            <div class="github-section">
+                <a href="https://github.com/StarKnightt/CleanType" target="_blank" rel="noopener noreferrer" class="github-button">
+                    <svg viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                    </svg>
+                    Star on GitHub
+                    <span class="star-count">⭐</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <h3>🎯 Distraction-Free</h3>
+                <p>Clean interface designed for focused writing sessions without unnecessary clutter.</p>
+            </div>
+            <div class="feature">
+                <h3>⚡ Fast & Efficient</h3>
+                <p>Built with Rust and Tauri for lightning-fast performance and minimal resource usage.</p>
+            </div>
+            <div class="feature">
+                <h3>🎨 Customizable</h3>
+                <p>Choose from various fonts, themes, and layouts to match your writing style.</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Made with ❤️ by <a href="https://github.com/StarKnightt">StarKnightt</a></p>
+        </footer>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>
