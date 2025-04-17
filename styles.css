@@ -425,29 +425,24 @@ h1 {
     }
 }
 
-.background-animations {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-    overflow: hidden;
-}
-
-.floating-shape {
-    position: absolute;
-    filter: blur(40px);
-    mix-blend-mode: screen;
-    pointer-events: none;
-}
-
+/* Remove these background-related styles */
+.background-animations,
+.floating-shape,
 .gradient-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
+    display: none;
+}
+
+.lets-connect {
+    color: #60a5fa;
+    position: relative;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    background: rgba(96, 165, 250, 0.1);
+}
+
+.lets-connect:hover {
+    background: rgba(96, 165, 250, 0.2);
+    transform: translateY(-1px);
+    text-decoration: none;
 }
