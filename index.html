@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CleanType - Modern Text Editor</title>
     
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="icon.svg" />
     
@@ -67,6 +72,19 @@
         <div class="hero">
             <h1>CleanType</h1>
             <p class="subtitle">A modern, distraction-free text editor for focused writing</p>
+            
+            <div class="video-container">
+                <video controls autoplay loop muted playsinline class="demo-video">
+                    <source src="https://video.gumlet.io/6745e593080b60408ca085f7/68011ca73ab3a7b826bbfac0/download.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="total-downloads-wrapper">
+                <span class="total-downloads-label">Total Downloads:</span>
+                <span class="total-downloads">--</span>
+            </div>
+
             <div class="download-section">
                 <div class="download-button-wrapper">
                     <span class="recommended-tag">Recommended</span>
@@ -74,12 +92,14 @@
                        class="download-button">
                         Download CleanType
                         <span class="button-note">Windows Installer (.exe)</span>
+                        <span class="download-count exe-downloads">--</span>
                     </a>
                 </div>
                 <a href="https://github.com/StarKnightt/CleanType/releases/download/v0.2.0/CleanType_0.2.0_x64_en-US.msi" 
                    class="download-button">
                     Download CleanType
                     <span class="button-note">Windows Installer (.msi)</span>
+                    <span class="download-count msi-downloads">--</span>
                 </a>
             </div>
             <div class="security-notice">
@@ -119,6 +139,40 @@
             <div class="feature">
                 <h3>🎨 Customizable</h3>
                 <p>Choose from various fonts, themes, and layouts to match your writing style.</p>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question-wrapper">
+                        <h3 class="faq-question">What makes CleanType different from other text editors?</h3>
+                        <div class="faq-toggle"></div>
+                    </div>
+                    <p class="faq-answer">CleanType is built with a focus on distraction-free writing, combining minimalist design with powerful features. Built with Rust and Tauri, it offers superior performance while using minimal system resources.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question-wrapper">
+                        <h3 class="faq-question">Is CleanType free to use?</h3>
+                        <div class="faq-toggle"></div>
+                    </div>
+                    <p class="faq-answer">Yes, CleanType is completely free and open-source. You can use it for personal or commercial purposes without any restrictions.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question-wrapper">
+                        <h3 class="faq-question">Can I customize the appearance?</h3>
+                        <div class="faq-toggle"></div>
+                    </div>
+                    <p class="faq-answer">Absolutely! CleanType offers various themes, fonts, and layout options that you can customize to match your preferences and writing style.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question-wrapper">
+                        <h3 class="faq-question">What platforms does CleanType support?</h3>
+                        <div class="faq-toggle"></div>
+                    </div>
+                    <p class="faq-answer">Currently, CleanType is available for Windows. Support for macOS and Linux is planned for future releases.</p>
+                </div>
             </div>
         </div>
 

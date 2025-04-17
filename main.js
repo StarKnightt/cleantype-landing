@@ -74,12 +74,26 @@ mainTimeline
         offset: '-=1800'
     })
     .add({
+        targets: '.video-container',
+        opacity: [0, 1],
+        translateY: [20, 0],
+        duration: 1200,
+        offset: '-=800'
+    })
+    .add({
+        targets: '.total-downloads-wrapper',
+        opacity: [0, 1],
+        translateY: [20, 0],
+        duration: 1000,
+        offset: '-=800'
+    })
+    .add({
         targets: '.download-button',
         opacity: [0, 1],
         translateY: [30, 0],
         scale: [0.9, 1],
         duration: 1200,
-        offset: '-=1000'
+        offset: '-=600'
     })
     .add({
         targets: '.security-notice',
@@ -125,6 +139,43 @@ features.forEach((feature, index) => {
         delay: 1000 + (index * 200),
         duration: 1500,
         easing: 'spring(1, 80, 10, 0)'
+    });
+});
+
+// FAQ animations and interaction
+const faqItems = document.querySelectorAll('.faq-item');
+faqItems.forEach((item, index) => {
+    // Initial animation
+    anime({
+        targets: item,
+        translateY: [50, 0],
+        opacity: [0, 1],
+        delay: 1200 + (index * 100),
+        duration: 1000,
+        easing: 'spring(1, 80, 10, 0)'
+    });
+
+    // Click handler
+    item.addEventListener('click', () => {
+        const wasActive = item.classList.contains('active');
+        
+        // Close all items
+        faqItems.forEach(otherItem => {
+            otherItem.classList.remove('active');
+        });
+
+        // Toggle clicked item
+        if (!wasActive) {
+            item.classList.add('active');
+        }
+
+        // Animate the toggle button
+        anime({
+            targets: item.querySelector('.faq-toggle'),
+            rotate: wasActive ? [45, 0] : [0, 45],
+            duration: 400,
+            easing: 'easeOutQuad'
+        });
     });
 });
 
@@ -216,17 +267,81 @@ githubButton.addEventListener('mouseleave', () => {
     });
 });
 
-// Fetch GitHub stars
-async function updateStarCount() {
+// Fetch GitHub stars and download counts
+async function updateGitHubStats() {
     try {
-        const response = await fetch('https://api.github.com/repos/StarKnightt/CleanType');
-        const data = await response.json();
+        // Fetch stars
+        const repoResponse = await fetch('https://api.github.com/repos/StarKnightt/CleanType');
+        const repoData = await repoResponse.json();
         const starCount = document.querySelector('.star-count');
-        if (starCount && data.stargazers_count !== undefined) {
-            starCount.textContent = `⭐ ${data.stargazers_count}`;
+        if (starCount && repoData.stargazers_count !== undefined) {
+            starCount.textContent = `⭐ ${repoData.stargazers_count}`;
         }
+
+        // Fetch latest release and download counts
+        const releaseResponse = await fetch('https://api.github.com/repos/StarKnightt/CleanType/releases/latest');
+        const releaseData = await releaseResponse.json();
+        
+        // Calculate total downloads
+        const totalDownloads = releaseData.assets.reduce((total, asset) => total + asset.download_count, 0);
+        
+        // Update download counts for specific installers
+        releaseData.assets.forEach(asset => {
+            if (asset.name.endsWith('.exe')) {
+                updateDownloadCount('.exe-downloads', asset.download_count);
+            } else if (asset.name.endsWith('.msi')) {
+                updateDownloadCount('.msi-downloads', asset.download_count);
+            }
+        });
+
+        // Update total downloads
+        updateDownloadCount('.total-downloads', totalDownloads);
     } catch (error) {
-        console.log('Error fetching star count:', error);
+        console.log('Error fetching GitHub stats:', error);
     }
 }
-updateStarCount();
+
+function updateDownloadCount(selector, count) {
+    const element = document.querySelector(selector);
+    if (element) {
+        element.textContent = formatDownloadCount(count);
+    }
+}
+
+function formatDownloadCount(count) {
+    if (count >= 1000000) {
+        return `${(count / 1000000).toFixed(1)}M`;
+    } else if (count >= 1000) {
+        return `${(count / 1000).toFixed(1)}K`;
+    }
+    return count.toString();
+}
+
+// Initialize stats
+updateGitHubStats();
+
+// Update stats periodically (every 5 minutes)
+setInterval(updateGitHubStats, 5 * 60 * 1000);
+
+// Add hover animations for stats containers
+document.querySelectorAll('.total-downloads-wrapper, .github-stats-wrapper').forEach(container => {
+    container.addEventListener('mouseenter', () => {
+        anime({
+            targets: container.querySelector('.stats-icon'),
+            scale: 1.1,
+            rotate: 5,
+            duration: 600,
+            easing: 'spring(1, 80, 10, 0)'
+        });
+    });
+
+    container.addEventListener('mouseleave', () => {
+        anime({
+            targets: container.querySelector('.stats-icon'),
+            scale: 1,
+            rotate: 0,
+            duration: 600,
+            easing: 'spring(1, 80, 10, 0)'
+        });
+    });
+});
