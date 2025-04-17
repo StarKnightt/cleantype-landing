@@ -1,4 +1,4 @@
-// Optimized cursor animation
+// Cursor animation setup
 const cursorMain = document.querySelector('.cursor-main');
 const cursorTrail = document.querySelector('.cursor-trail');
 let mouseX = 0, mouseY = 0;
@@ -6,6 +6,57 @@ let cursorX = 0, cursorY = 0;
 let trailX = 0, trailY = 0;
 let speed = 0.15;
 
+// Particles setup
+const colors = ['#3b82f6', '#8b5cf6', '#60a5fa'];
+const numParticles = 25;
+const particlesContainer = document.createElement('div');
+particlesContainer.className = 'particles-container';
+document.body.appendChild(particlesContainer);
+
+// Create and animate particles
+for (let i = 0; i < numParticles; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particlesContainer.appendChild(particle);
+    
+    const randomX = anime.random(-window.innerWidth/2, window.innerWidth/2);
+    const randomY = anime.random(-window.innerHeight/2, window.innerHeight/2);
+    const randomScale = anime.random(0.2, 1);
+    const randomDuration = anime.random(3000, 8000);
+    const randomDelay = anime.random(0, 2000);
+    
+    anime({
+        targets: particle,
+        translateX: [
+            { value: randomX, duration: randomDuration },
+            { value: -randomX, duration: randomDuration }
+        ],
+        translateY: [
+            { value: randomY, duration: randomDuration },
+            { value: -randomY, duration: randomDuration }
+        ],
+        scale: [
+            { value: randomScale, duration: randomDuration },
+            { value: randomScale * 0.5, duration: randomDuration }
+        ],
+        backgroundColor: {
+            value: colors,
+            duration: randomDuration * 2,
+            easing: 'linear'
+        },
+        opacity: {
+            value: [0.1, 0.3],
+            duration: randomDuration,
+            easing: 'easeInOutSine'
+        },
+        delay: randomDelay,
+        loop: true,
+        direction: 'alternate',
+        easing: 'easeInOutSine'
+    });
+}
+
+// Cursor movement handler
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
@@ -51,7 +102,7 @@ document.querySelectorAll('a, .feature, .download-button').forEach(el => {
     });
 });
 
-// SVG Morphing Animation with multiple paths
+// SVG Morphing Animation
 const morphPaths = document.querySelectorAll('.morph-path');
 morphPaths.forEach((path, index) => {
     anime({
@@ -69,7 +120,7 @@ morphPaths.forEach((path, index) => {
     });
 });
 
-// Enhanced timeline animations
+// Main animation timeline
 const mainTimeline = anime.timeline({
     easing: 'easeOutExpo'
 });
@@ -104,11 +155,38 @@ mainTimeline
         translateY: [30, 0],
         duration: 1000,
         offset: '-=800'
+    })
+    .add({
+        targets: '.github-section',
+        opacity: [0, 1],
+        translateY: [20, 0],
+        duration: 1000,
+        easing: 'spring(1, 80, 10, 0)'
+    })
+    .add({
+        targets: '.recommended-tag',
+        opacity: [0, 1],
+        translateY: [-20, 0],
+        scale: [0.5, 1],
+        duration: 800,
+        delay: 500,
+        endDelay: 0,
+        easing: 'spring(1, 90, 10, 0)'
+    })
+    .add({
+        targets: '.motivation-text',
+        opacity: [0, 0.8],
+        translateY: [10, 0],
+        scale: [0.9, 1],
+        duration: 800,
+        easing: 'spring(1, 80, 10, 0)',
+        delay: 200
     });
 
-// Feature cards with physics-based animations
+// Feature animations
 const features = document.querySelectorAll('.feature');
 features.forEach((feature, index) => {
+    // Initial animation
     anime({
         targets: feature,
         translateY: [100, 0],
@@ -119,102 +197,96 @@ features.forEach((feature, index) => {
         easing: 'spring(1, 80, 10, 0)'
     });
 
-    // Interactive tilt effect with physics
-    feature.addEventListener('mousemove', (e) => {
-        const rect = feature.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const rotateX = ((y - centerY) / centerY) * -10;
-        const rotateY = ((x - centerX) / centerX) * 10;
-
+    // Hover animations
+    feature.addEventListener('mouseenter', () => {
         anime({
             targets: feature,
-            rotateX: rotateX,
-            rotateY: rotateY,
-            translateZ: 50,
-            duration: 50,
-            easing: 'linear'
+            scale: 1.02,
+            translateY: -10,
+            rotateX: 10,
+            rotateY: 10,
+            duration: 800,
+            easing: 'spring(1, 90, 11, 0)'
         });
     });
 
     feature.addEventListener('mouseleave', () => {
         anime({
             targets: feature,
+            scale: 1,
+            translateY: 0,
             rotateX: 0,
             rotateY: 0,
-            translateZ: 0,
-            duration: 1000,
+            duration: 600,
             easing: 'spring(1, 80, 10, 0)'
         });
     });
 });
 
-// Download button effects
-const downloadButton = document.querySelector('.download-button');
-downloadButton.addEventListener('mouseenter', () => {
-    anime({
-        targets: downloadButton,
-        scale: 1.05,
-        duration: 500,
-        easing: 'spring(1, 80, 10, 0)'
+// Download button hover effects
+document.querySelectorAll('.download-button').forEach(button => {
+    button.addEventListener('mouseenter', () => {
+        anime({
+            targets: button,
+            scale: 1.05,
+            translateY: -5,
+            boxShadow: '0 15px 30px rgba(59, 130, 246, 0.3)',
+            duration: 500,
+            easing: 'spring(1, 80, 10, 0)'
+        });
+    });
+
+    button.addEventListener('mouseleave', () => {
+        anime({
+            targets: button,
+            scale: 1,
+            translateY: 0,
+            boxShadow: '0 10px 20px rgba(59, 130, 246, 0.2)',
+            duration: 500,
+            easing: 'spring(1, 80, 10, 0)'
+        });
     });
 });
 
-downloadButton.addEventListener('mouseleave', () => {
-    anime({
-        targets: downloadButton,
-        scale: 1,
-        duration: 500,
-        easing: 'spring(1, 80, 10, 0)'
-    });
+// Background animations
+anime({
+    targets: '.hero-svg',
+    translateY: [-20, 20],
+    rotate: ['-60deg', '-55deg'],
+    duration: 8000,
+    loop: true,
+    direction: 'alternate',
+    easing: 'easeInOutQuad',
+    delay: (el, i) => i * 100
 });
 
-// Background gradient animation
 anime({
     targets: '.hero::before',
-    translateX: [-25, 25],
-    translateY: [-25, 25],
-    duration: 10000,
-    direction: 'alternate',
+    opacity: [0.1, 0.3],
+    scale: [1, 1.2],
+    duration: 4000,
     loop: true,
+    direction: 'alternate',
     easing: 'easeInOutQuad'
 });
 
-// GitHub section animation
-anime({
-    targets: '.github-section',
-    opacity: [0, 1],
-    translateY: [20, 0],
-    duration: 1000,
-    easing: 'spring(1, 80, 10, 0)',
-    delay: 1200
-});
-
-// Fetch GitHub stars count
-async function updateStarCount() {
-    try {
-        const response = await fetch('https://api.github.com/repos/StarKnightt/CleanType');
-        const data = await response.json();
-        const starCount = document.querySelector('.star-count');
-        if (starCount && data.stargazers_count !== undefined) {
-            starCount.textContent = `⭐ ${data.stargazers_count}`;
-        }
-    } catch (error) {
-        console.log('Error fetching star count:', error);
-    }
-}
-updateStarCount();
-
-// Add hover effect for GitHub button
+// GitHub button effects
 const githubButton = document.querySelector('.github-button');
 githubButton.addEventListener('mouseenter', () => {
     anime({
         targets: '.github-button svg',
         rotate: 360,
         scale: 1.1,
+        duration: 800,
+        easing: 'spring(1, 90, 10, 0)'
+    });
+    
+    // Animate motivation text on hover
+    anime({
+        targets: '.motivation-text',
+        scale: 1.05,
+        translateY: -5,
+        opacity: 1,
         duration: 600,
         easing: 'spring(1, 80, 10, 0)'
     });
@@ -228,4 +300,58 @@ githubButton.addEventListener('mouseleave', () => {
         duration: 600,
         easing: 'spring(1, 80, 10, 0)'
     });
+    
+    // Reset motivation text
+    anime({
+        targets: '.motivation-text',
+        scale: 1,
+        translateY: 0,
+        opacity: 0.8,
+        duration: 500,
+        easing: 'spring(1, 80, 10, 0)'
+    });
 });
+
+// Add sparkle animation to the motivation text emoji
+function createSparkle() {
+    const sparkle = document.createElement('span');
+    sparkle.innerHTML = '✨';
+    sparkle.style.position = 'absolute';
+    sparkle.style.pointerEvents = 'none';
+    document.body.appendChild(sparkle);
+
+    const startX = motivationText.getBoundingClientRect().right - 20;
+    const startY = motivationText.getBoundingClientRect().top;
+
+    sparkle.style.left = startX + 'px';
+    sparkle.style.top = startY + 'px';
+
+    anime({
+        targets: sparkle,
+        translateY: -40,
+        translateX: anime.random(-20, 20),
+        scale: [1, 0],
+        opacity: [1, 0],
+        duration: 1000,
+        easing: 'easeOutCubic',
+        complete: () => sparkle.remove()
+    });
+}
+
+// Create sparkles periodically
+setInterval(createSparkle, 2000);
+
+// Fetch GitHub stars
+async function updateStarCount() {
+    try {
+        const response = await fetch('https://api.github.com/repos/StarKnightt/CleanType');
+        const data = await response.json();
+        const starCount = document.querySelector('.star-count');
+        if (starCount && data.stargazers_count !== undefined) {
+            starCount.textContent = `⭐ ${data.stargazers_count}`;
+        }
+    } catch (error) {
+        console.log('Error fetching star count:', error);
+    }
+}
+updateStarCount();
