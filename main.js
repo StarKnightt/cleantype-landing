@@ -89,11 +89,12 @@ mainTimeline
         offset: '-=800'
     })
     .add({
-        targets: '.github-section',
+        targets: '.github-button, .connect-button',
         opacity: [0, 1],
         translateY: [20, 0],
+        scale: [0.9, 1],
         duration: 1000,
-        easing: 'spring(1, 80, 10, 0)'
+        delay: anime.stagger(200)
     })
     .add({
         targets: '.motivation-text',

@@ -313,8 +313,6 @@ h1 {
 .github-section {
     text-align: center;
     margin: 2rem auto;
-    opacity: 0;
-    transform: translateY(20px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -445,4 +443,52 @@ h1 {
     background: rgba(96, 165, 250, 0.2);
     transform: translateY(-1px);
     text-decoration: none;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.connect-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, #60a5fa, #a855f7);
+    color: #f8fafc;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.connect-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(96, 165, 250, 0.2);
+}
+
+.connect-icon {
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.connect-button:hover .connect-icon {
+    transform: rotate(-15deg) scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .social-buttons {
+        flex-direction: column;
+    }
+    
+    .connect-button {
+        width: 100%;
+        justify-content: center;
+    }
 }
