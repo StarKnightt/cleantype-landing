@@ -1,3 +1,111 @@
+// Create background animation container
+const bgContainer = document.createElement('div');
+bgContainer.className = 'background-animations';
+document.body.insertBefore(bgContainer, document.body.firstChild);
+
+// Create particles container and setup
+const colors = ['#3b82f6', '#8b5cf6', '#60a5fa', '#818cf8'];
+const numParticles = 30;
+const numShapes = 15;
+
+// Create and animate floating shapes
+for (let i = 0; i < numShapes; i++) {
+    const shape = document.createElement('div');
+    shape.className = 'floating-shape';
+    bgContainer.appendChild(shape);
+    
+    // Randomize initial position and size
+    const size = anime.random(30, 100);
+    shape.style.width = `${size}px`;
+    shape.style.height = `${size}px`;
+    shape.style.left = `${anime.random(0, 100)}%`;
+    shape.style.top = `${anime.random(0, 100)}%`;
+    shape.style.backgroundColor = colors[Math.floor(anime.random(0, colors.length))];
+    shape.style.borderRadius = Math.random() > 0.5 ? '50%' : `${anime.random(20, 50)}%`;
+    
+    // Create shape animation
+    anime({
+        targets: shape,
+        translateX: () => anime.random(-50, 50),
+        translateY: () => anime.random(-50, 50),
+        scale: [
+            { value: anime.random(0.5, 1.5), duration: anime.random(2000, 5000) },
+            { value: 1, duration: anime.random(2000, 5000) }
+        ],
+        rotate: () => anime.random(-180, 180),
+        opacity: [
+            { value: anime.random(0.1, 0.4), duration: anime.random(2000, 3000) },
+            { value: 0.1, duration: anime.random(2000, 3000) }
+        ],
+        duration: anime.random(6000, 12000),
+        delay: anime.random(0, 1000),
+        direction: 'alternate',
+        loop: true,
+        easing: 'easeInOutSine'
+    });
+}
+
+// Enhanced particle system
+for (let i = 0; i < numParticles; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    bgContainer.appendChild(particle);
+    
+    const randomX = anime.random(-window.innerWidth/2, window.innerWidth/2);
+    const randomY = anime.random(-window.innerHeight/2, window.innerHeight/2);
+    const randomScale = anime.random(0.2, 1);
+    const randomDuration = anime.random(3000, 8000);
+    const randomDelay = anime.random(0, 2000);
+    
+    anime({
+        targets: particle,
+        translateX: [
+            { value: randomX, duration: randomDuration },
+            { value: -randomX, duration: randomDuration }
+        ],
+        translateY: [
+            { value: randomY, duration: randomDuration },
+            { value: -randomY, duration: randomDuration }
+        ],
+        scale: [
+            { value: randomScale, duration: randomDuration },
+            { value: randomScale * 0.5, duration: randomDuration }
+        ],
+        backgroundColor: {
+            value: colors,
+            duration: randomDuration * 2,
+            easing: 'linear'
+        },
+        opacity: {
+            value: [0.1, 0.3],
+            duration: randomDuration,
+            easing: 'easeInOutSine'
+        },
+        delay: randomDelay,
+        loop: true,
+        direction: 'alternate',
+        easing: 'easeInOutSine'
+    });
+}
+
+// Morphing gradient background animation
+const gradientBg = document.createElement('div');
+gradientBg.className = 'gradient-background';
+bgContainer.appendChild(gradientBg);
+
+anime({
+    targets: '.gradient-background',
+    background: [
+        { value: 'linear-gradient(45deg, rgba(59,130,246,0.1), rgba(139,92,246,0.1))' },
+        { value: 'linear-gradient(225deg, rgba(96,165,250,0.1), rgba(168,85,247,0.1))' },
+        { value: 'linear-gradient(135deg, rgba(59,130,246,0.1), rgba(139,92,246,0.1))' }
+    ],
+    duration: 10000,
+    easing: 'easeInOutQuad',
+    direction: 'alternate',
+    loop: true
+});
+
 // Cursor animation setup
 const cursorMain = document.querySelector('.cursor-main');
 const cursorTrail = document.querySelector('.cursor-trail');
@@ -7,8 +115,7 @@ let trailX = 0, trailY = 0;
 let speed = 0.15;
 
 // Particles setup
-const colors = ['#3b82f6', '#8b5cf6', '#60a5fa'];
-const numParticles = 25;
+const colors2 = ['#3b82f6', '#8b5cf6', '#60a5fa'];
 const particlesContainer = document.createElement('div');
 particlesContainer.className = 'particles-container';
 document.body.appendChild(particlesContainer);
