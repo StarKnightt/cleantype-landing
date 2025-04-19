@@ -16,7 +16,7 @@ const Testimonials = () => {
           What People Say
         </h2>
         <p className="text-base-content/70 text-lg text-center mb-12">
-          Join thousands of satisfied users who love CleanType
+          Log kya kahenge?
         </p>
         
         {/* Tweets Marquee Container */}
