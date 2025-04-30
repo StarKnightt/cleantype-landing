@@ -1,12 +1,30 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const Hero = () => {
+  const [downloadCount, setDownloadCount] = useState<number>(0);
+
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', 'black');
+    
+    // Fetch download count from GitHub API
+    fetch('https://api.github.com/repos/StarKnightt/CleanType/releases')
+      .then(response => response.json())
+      .then(releases => {
+        const totalDownloads = releases.reduce((total: number, release: any) => {
+          const assets = release.assets || [];
+          const releaseDownloads = assets.reduce((sum: number, asset: any) => sum + asset.download_count, 0);
+          return total + releaseDownloads;
+        }, 0);
+        setDownloadCount(totalDownloads);
+      })
+      .catch(error => {
+        console.error('Error fetching download count:', error);
+        setDownloadCount(0);
+      });
   }, []);
 
   return (
-    <div className="hero bg-gradient-to-b from-base-200 to-base-100">
+    <div id="hero" className="hero bg-gradient-to-b from-base-200 to-base-100">
       <div className="hero-content text-center py-12">
         <div className="max-w-5xl">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-base-200 bg-opacity-50 px-3 py-1 text-sm text-muted shadow-soft animate-fade-in-down">
@@ -47,7 +65,7 @@ const Hero = () => {
           <div className="stats bg-base-200 bg-opacity-50 shadow-soft my-6 border border-base-300 border-opacity-10 animate-fade-in-up">
             <div className="stat">
               <div className="stat-title text-muted-light text-sm font-medium">Total Downloads</div>
-              <div className="stat-value text-4xl font-bold">53</div>
+              <div className="stat-value text-4xl font-bold">{downloadCount.toLocaleString()}</div>
             </div>
           </div>
 
@@ -57,7 +75,7 @@ const Hero = () => {
                 <span className="absolute -top-6 right-2.5 text-xs font-medium bg-primary/10 text-primary px-3 py-1 rounded-full">
                   Recommended
                 </span>
-                <a href="https://github.com/StarKnightt/CleanType/releases/download/v0.2.0/CleanType_0.2.0_x64-setup.exe" 
+                <a href="https://github.com/StarKnightt/CleanType/releases/download/v0.3.0/CleanType_0.3.0_x64-setup.exe" 
                   className="btn w-full md:w-80 h-auto py-4 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 border-0 shadow-soft hover:shadow-hover transition-all duration-300">
                   <div className="flex flex-col">
                     <span className="text-lg font-medium">Download for Windows</span>
@@ -68,7 +86,7 @@ const Hero = () => {
               </div>
             </div>
 
-            <a href="https://github.com/StarKnightt/CleanType/releases/download/v0.2.0/CleanType_0.2.0_x64_en-US.msi" 
+            <a href="https://github.com/StarKnightt/CleanType/releases/download/v0.3.0/CleanType_0.3.0_x64_en-US.msi" 
               className="btn w-full md:w-80 h-auto py-4 bg-transparent hover:bg-base-content/5 border border-base-content/20 shadow-soft hover:shadow-hover transition-all duration-300">
               <div className="flex flex-col">
                 <span className="text-lg font-medium">Download MSI Version</span>
@@ -100,4 +118,4 @@ const Hero = () => {
   );
 };
 
-export default Hero; 
+export default Hero;
