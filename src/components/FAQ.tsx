@@ -24,7 +24,7 @@ const faqData: FAQItem[] = [
 
 const FAQ = () => {
   return (
-    <section className="bg-base-100 py-12">
+    <section id="faq" className="bg-base-100 py-12">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
           Frequently Asked Questions
@@ -50,4 +50,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ; 
+export default FAQ;

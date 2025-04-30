@@ -10,7 +10,7 @@ const tweetIds = [
 
 const Testimonials = () => {
   return (
-    <section className="bg-base-100 overflow-hidden pb-16">
+    <section id="testimonials" className="bg-base-100 overflow-hidden pb-16">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
           What People Say
@@ -51,4 +51,4 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials; 
+export default Testimonials;

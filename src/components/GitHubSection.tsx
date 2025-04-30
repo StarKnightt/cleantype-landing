@@ -2,7 +2,7 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const GitHubSection = () => {
   return (
-    <section className="bg-base-100 overflow-hidden pb-16">
+    <section id="github-section" className="bg-base-100 overflow-hidden pb-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-br from-primary via-primary/80 to-primary/50">
@@ -63,4 +63,4 @@ const GitHubSection = () => {
   );
 };
 
-export default GitHubSection; 
+export default GitHubSection;
