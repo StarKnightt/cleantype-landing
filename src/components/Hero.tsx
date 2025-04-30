@@ -42,25 +42,6 @@ const Hero = () => {
           <p className="py-4 text-xl md:text-2xl max-w-3xl mx-auto text-muted animate-fade-in-up">
             A modern, distraction-free text editor for focused writing. Clean interface, fast performance, and beautiful design.
           </p>
-          
-          <div className="card bg-base-200 bg-opacity-50 shadow-soft hover:shadow-hover transition-all duration-300 my-6 overflow-hidden border border-base-300 border-opacity-10 group animate-fade-in-up">
-            <div className="card-body p-0">
-              <div className="relative overflow-hidden">
-                <video 
-                  className="w-full" 
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  controls
-                  preload="metadata"
-                >
-                  <source src="https://video.gumlet.io/6745e593080b60408ca085f7/68011ca73ab3a7b826bbfac0/download.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </div>
-          </div>
 
           <div className="stats bg-base-200 bg-opacity-50 shadow-soft my-6 border border-base-300 border-opacity-10 animate-fade-in-up">
             <div className="stat">
