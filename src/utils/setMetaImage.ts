@@ -1,15 +1,4 @@
-import ogImage from '../assets/og-image.png'
-
+// This file is now deprecated as we're using static meta tags in index.html
 export function setMetaImage() {
-  // Set OG image
-  const ogImageMeta = document.getElementById('og-image') as HTMLMetaElement;
-  if (ogImageMeta) {
-    ogImageMeta.content = ogImage;
-  }
-
-  // Set Twitter image
-  const twitterImageMeta = document.getElementById('twitter-image') as HTMLMetaElement;
-  if (twitterImageMeta) {
-    twitterImageMeta.content = ogImage;
-  }
+  // No-op - meta tags are now static in index.html
 }
