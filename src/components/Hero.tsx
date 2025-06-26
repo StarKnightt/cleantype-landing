@@ -118,6 +118,28 @@ const Hero = () => {
             </div>
           </div>
 
+          {/* Video Demo Section */}
+          <div className="relative w-full max-w-4xl mx-auto my-16 animate-fade-in-up">
+            {/* Shining border effect */}
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/50 via-primary to-primary/50 rounded-2xl blur opacity-75 animate-gradient-xy group-hover:opacity-100 transition duration-1000"></div>
+            <div className="relative rounded-2xl overflow-hidden shadow-soft border border-base-300 border-opacity-10 bg-base-100">
+              <div className="aspect-w-16 aspect-h-9 bg-base-300 bg-opacity-50">
+                <video 
+                  className="w-full h-full object-cover"
+                  controls
+                  preload="none"
+                  poster="/og-image.png"
+                >
+                  <source src="https://video.gumlet.io/6745e593080b60408ca085f7/68011ca73ab3a7b826bbfac0/download.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div className="p-4 text-center bg-base-200 bg-opacity-50">
+                <p className="text-muted">Watch CleanType in action - See how it transforms your writing experience</p>
+              </div>
+            </div>
+          </div>
+
           {/* Features Section */}
           <div className="mt-24 mb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up">
             {/* Quick Text Cleaning */}
