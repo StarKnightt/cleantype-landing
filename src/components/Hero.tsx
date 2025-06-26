@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 const Hero = () => {
   const [downloadCount, setDownloadCount] = useState<number>(0);
+  const [displayCount, setDisplayCount] = useState<number>(0);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', 'black');
@@ -22,6 +23,26 @@ const Hero = () => {
         setDownloadCount(0);
       });
   }, []);
+
+  useEffect(() => {
+    // Animate the counter
+    if (downloadCount > 0) {
+      const duration = 2000; // 2 seconds
+      const steps = 60;
+      const increment = downloadCount / steps;
+      let current = 0;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= downloadCount) {
+          setDisplayCount(downloadCount);
+          clearInterval(timer);
+        } else {
+          setDisplayCount(Math.floor(current));
+        }
+      }, duration / steps);
+      return () => clearInterval(timer);
+    }
+  }, [downloadCount]);
 
   return (
     <div id="hero" className="hero bg-gradient-to-b from-base-200 to-base-100">
@@ -46,7 +67,10 @@ const Hero = () => {
           <div className="stats bg-base-200 bg-opacity-50 shadow-soft my-6 border border-base-300 border-opacity-10 animate-fade-in-up">
             <div className="stat">
               <div className="stat-title text-muted-light text-sm font-medium">Total Downloads</div>
-              <div className="stat-value text-4xl font-bold">{downloadCount.toLocaleString()}</div>
+              <div className="stat-value text-4xl font-bold">
+                {displayCount.toLocaleString()}
+                <span className="text-primary">+</span>
+              </div>
             </div>
           </div>
 
