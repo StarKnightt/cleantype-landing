@@ -117,6 +117,104 @@ const Hero = () => {
               </div>
             </div>
           </div>
+
+          {/* Features Section */}
+          <div className="mt-24 mb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up">
+            {/* Quick Text Cleaning */}
+            <div className="card bg-base-200 bg-opacity-50 shadow-soft hover:shadow-hover transition-all duration-300 border border-base-300 border-opacity-10">
+              <div className="card-body">
+                <div className="text-primary mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <h3 className="card-title text-xl mb-2">Quick Text Cleaning</h3>
+                <p className="text-muted">Instantly format and clean your text with powerful built-in tools. Perfect for writers and editors.</p>
+              </div>
+            </div>
+
+            {/* Rust Performance */}
+            <div className="card bg-base-200 bg-opacity-50 shadow-soft hover:shadow-hover transition-all duration-300 border border-base-300 border-opacity-10">
+              <div className="card-body">
+                <div className="text-primary mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="card-title text-xl mb-2">Lightning Fast</h3>
+                <p className="text-muted">Built with Rust for exceptional performance. Handle large documents with ease and zero lag.</p>
+              </div>
+            </div>
+
+            {/* Modern UI */}
+            <div className="card bg-base-200 bg-opacity-50 shadow-soft hover:shadow-hover transition-all duration-300 border border-base-300 border-opacity-10">
+              <div className="card-body">
+                <div className="text-primary mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                  </svg>
+                </div>
+                <h3 className="card-title text-xl mb-2">Modern Interface</h3>
+                <p className="text-muted">Clean, intuitive design that stays out of your way. Focus on your writing, not the interface.</p>
+              </div>
+            </div>
+
+            {/* Privacy */}
+            <div className="card bg-base-200 bg-opacity-50 shadow-soft hover:shadow-hover transition-all duration-300 border border-base-300 border-opacity-10">
+              <div className="card-body">
+                <div className="text-primary mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                </div>
+                <h3 className="card-title text-xl mb-2">Privacy-Focused</h3>
+                <p className="text-muted">All processing happens locally on your device. Your data never leaves your computer.</p>
+              </div>
+            </div>
+
+            {/* History */}
+            <div className="card bg-base-200 bg-opacity-50 shadow-soft hover:shadow-hover transition-all duration-300 border border-base-300 border-opacity-10">
+              <div className="card-body">
+                <div className="text-primary mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="card-title text-xl mb-2">Smart History</h3>
+                <p className="text-muted">Built-in version history keeps track of your changes. No need for multiple file versions.</p>
+              </div>
+            </div>
+
+            {/* Multiple Fonts */}
+            <div className="card bg-base-200 bg-opacity-50 shadow-soft hover:shadow-hover transition-all duration-300 border border-base-300 border-opacity-10">
+              <div className="card-body">
+                <div className="text-primary mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                  </svg>
+                </div>
+                <h3 className="card-title text-xl mb-2">Rich Customization</h3>
+                <p className="text-muted">Multiple fonts and easy-to-use interface customization options to match your style.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-4 mt-8 mb-0 animate-fade-in-up">
+            <div className="alert bg-base-200/50 border border-base-300/10 shadow-soft">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current shrink-0 w-6 h-6 opacity-70">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span className="text-muted">🔒 All downloads are verified and signed. Your security is our priority.</span>
+            </div>
+            <div className="alert bg-base-200/50 border border-base-300/10 shadow-soft">
+              <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6 opacity-70" fill="none" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              <div className="text-muted">
+                <strong>Note:</strong> When installing, Windows might show a security prompt. Click "More info" and then "Run anyway" to proceed.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
