@@ -1,40 +1,27 @@
-import { useEffect } from 'react';
+import React from 'react';
 import Hero from './components/Hero';
-import FAQ from './components/FAQ';
 import GitHubSection from './components/GitHubSection';
+import FAQ from './components/FAQ';
 import Testimonials from './components/Testimonials';
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 
 function App() {
   // Set initial theme
-  useEffect(() => {
+  React.useEffect(() => {
     document.documentElement.setAttribute('data-theme', 'black');
   }, []);
 
   return (
-    <div className="min-h-screen bg-base-100 flex flex-col">
+    <div className="min-h-screen bg-base-100">
       <NavBar />
-      <div className="flex-1">
-        <main>
-          <Hero />
-          <GitHubSection />
-          <Testimonials />
-          <FAQ />
-        </main>
-      </div>
-      
-      <footer className="bg-base-200/50 border-t border-base-300/10">
-        <div className="container mx-auto py-8 px-4 text-center">
-          <a 
-            href="https://prasen.dev" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-primary hover:text-primary/80 transition-colors font-medium"
-          >
-            prasen.dev
-          </a>
-        </div>
-      </footer>
+      <main>
+        <Hero />
+        <GitHubSection />
+        <Testimonials />
+        <FAQ />
+      </main>
+      <Footer />
     </div>
   );
 }
