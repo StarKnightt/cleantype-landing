@@ -35,12 +35,6 @@ const NavBar = () => {
             Open Source
           </button>
           <button 
-            onClick={() => scrollToSection('testimonials')} 
-            className="text-base-content hover:text-primary transition px-4 py-2 md:p-0"
-          >
-            Testimonials
-          </button>
-          <button 
             onClick={() => scrollToSection('faq')} 
             className="text-base-content hover:text-primary transition px-4 py-2 md:p-0"
           >
