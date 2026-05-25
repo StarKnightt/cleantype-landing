@@ -1,4 +1,5 @@
 import { Tweet } from 'react-tweet';
+import TweetErrorBoundary from './TweetErrorBoundary';
 
 const tweetIds = [
   "1912805209153347690",
@@ -31,7 +32,9 @@ const Testimonials = () => {
             <div className="flex gap-8 animate-[marquee_40s_linear_infinite]">
               {tweetIds.map((id) => (
                 <div key={id} className="flex-none w-[350px]">
-                  <Tweet id={id} />
+                  <TweetErrorBoundary>
+                    <Tweet id={id} />
+                  </TweetErrorBoundary>
                 </div>
               ))}
             </div>
@@ -40,7 +43,9 @@ const Testimonials = () => {
             <div className="flex gap-8 animate-[marquee_40s_linear_infinite]">
               {tweetIds.map((id) => (
                 <div key={`${id}-dup`} className="flex-none w-[350px]">
-                  <Tweet id={id} />
+                  <TweetErrorBoundary>
+                    <Tweet id={id} />
+                  </TweetErrorBoundary>
                 </div>
               ))}
             </div>
