@@ -2,7 +2,6 @@ import React from 'react';
 import Hero from './components/Hero';
 import GitHubSection from './components/GitHubSection';
 import FAQ from './components/FAQ';
-import Testimonials from './components/Testimonials';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 
@@ -18,7 +17,6 @@ function App() {
       <main>
         <Hero />
         <GitHubSection />
-        <Testimonials />
         <FAQ />
       </main>
       <Footer />
